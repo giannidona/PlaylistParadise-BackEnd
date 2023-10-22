@@ -1,9 +1,28 @@
-import { Router } from "express";
+import baseRouter from "./baseRouter.js";
+import { uploader } from "../middlewares/multer.js";
+import userModel from "../dao/models/userModel.js";
 
-const router = Router();
+export default class RegisterRouter extends baseRouter {
+  init() {
+    this.get("/register", async (req, res) => {
+      res.render("register");
+    });
 
-router.get("/register", async (req, res) => {
-  res.render("register");
-});
-
-export default router;
+    this.post("/register", uploader.single("file"), async (req, res) => {
+      try {
+        const { username, email, password } = req.body;
+        const profile_image = req.file.originalname;
+        const newUser = await userModel.create({
+          username,
+          email,
+          password,
+          profile_image,
+        });
+        console.log(newUser);
+        res.redirect("home");
+      } catch (error) {
+        res.send(error);
+      }
+    });
+  }
+}

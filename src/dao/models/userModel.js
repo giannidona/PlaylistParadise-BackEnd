@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const userColletion = "users";
+const userCollection = "users";
 
 const userSchema = new mongoose.Schema({
   username: {
@@ -17,10 +17,9 @@ const userSchema = new mongoose.Schema({
   },
   profile_image: {
     type: String,
-    required: true,
   },
 });
 
-const userModel = mongoose.model(userColletion, userSchema);
+const userModel = mongoose.model(userCollection, userSchema);
 
 export default userModel;

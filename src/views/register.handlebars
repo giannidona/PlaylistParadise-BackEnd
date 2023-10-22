@@ -5,7 +5,11 @@
     <p class="title">WELCOME TO CMS</p>
     <p class="subtitle">REGISTER</p>
     <div class="container__form">
-      <form action="">
+      <form
+        action="http://localhost:8080/register"
+        method="post"
+        enctype="multipart/form-data"
+      >
         <div class="container__username">
           <input
             type="text"
@@ -29,7 +33,7 @@
           <input
             type="file"
             id="profile_image"
-            name="profile_image"
+            name="file"
             class="profile_image"
           />
           <label for="profile_image">Select Picture</label>
