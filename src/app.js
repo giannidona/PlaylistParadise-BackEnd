@@ -2,7 +2,7 @@ import express from "express";
 import handlebars from "express-handlebars";
 import mongoose from "mongoose";
 
-// import loginRouter from "./routes/loginRouter.js";
+import LoginRouter from "./routes/loginRouter.js";
 import RegisterRouter from "./routes/registerRouter.js";
 
 const app = express();
@@ -22,3 +22,6 @@ app.set("view engine", "handlebars");
 
 const registerRouter = new RegisterRouter();
 app.use(registerRouter.getRouter());
+
+const loginRouter = new LoginRouter();
+app.use(loginRouter.getRouter());
