@@ -1,0 +1,46 @@
+.container {
+  max-width: 80%;
+  margin: auto;
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+.card {
+  max-width: 320px;
+  height: 360px;
+  border-radius: 2px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+.card__img img {
+  max-width: 320px;
+  border-radius: 2px 2px 0px 0px;
+}
+
+.card__info {
+  font-size: 15px;
+  line-height: 20px;
+  text-wrap: balance;
+  padding: 10px;
+}
+
+.creator__post__info {
+  display: flex;
+  margin: 10px 0px;
+  color: rgb(148, 148, 148);
+  justify-content: space-around;
+}
+
+.user__info {
+  display: flex;
+}
+
+.user__info img {
+  max-width: 20px;
+  margin-right: 5px;
+}

@@ -1,1 +1,37 @@
-<H1>HOME</H1>
+<link rel="stylesheet" href="/static/css/home.css" />
+
+<nav class="nav__bar">
+  <ul class="nav__links">
+    <li class="nav__items"><a href="home">HOME</a></li>
+    <li class="nav__items"><a href="home">MY POSTS</a></li>
+    <li class="nav__items"><a href="home">CREATE POST</a></li>
+  </ul>
+</nav>
+<section id="posts">
+  <div class="container">
+    {{#each post}}
+      <div class="card">
+        <div class="card__img">
+          <img src="http://localhost:8080/static/{{this.post_image}}" alt="" />
+        </div>
+        <div class="card__info">
+          <p>{{this.title}}</p>
+          <p>{{this.description}}</p>
+          <div class="creator__post__info">
+            <p class="text__date">{{this.date}}</p>
+            <div class="user__info">
+              <img
+                class="profile__img"
+                src="/static/profile-picture.png"
+                alt=""
+              />
+              <p class="user">user</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</section>
+
+<script src="/static/js/newPost.js"></script>

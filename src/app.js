@@ -4,6 +4,8 @@ import mongoose from "mongoose";
 
 import LoginRouter from "./routes/loginRouter.js";
 import RegisterRouter from "./routes/registerRouter.js";
+import HomeRouter from "./routes/homeRouter.js";
+import PostRouter from "./routes/postRouter.js";
 
 const app = express();
 const httpServer = app.listen(8080, () => console.log("http://localhost:8080"));
@@ -25,3 +27,9 @@ app.use(registerRouter.getRouter());
 
 const loginRouter = new LoginRouter();
 app.use(loginRouter.getRouter());
+
+const homeRouter = new HomeRouter();
+app.use(homeRouter.getRouter());
+
+const postRouter = new PostRouter();
+app.use(postRouter.getRouter());

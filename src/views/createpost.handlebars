@@ -1,0 +1,46 @@
+<link rel="stylesheet" href="/static/css/createpost.css" />
+
+<nav class="nav__bar">
+  <ul class="nav__links">
+    <li class="nav__items"><a href="home">HOME</a></li>
+    <li class="nav__items"><a href="home">MY POSTS</a></li>
+    <li class="nav__items"><a href="home">CREATE POST</a></li>
+  </ul>
+</nav>
+
+<section id="createpost">
+  <div class="container">
+    <p class="title">CREATE POST</p>
+    <div class="container__form">
+      <form
+        action="http://localhost:8080/createpost"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <div class="container__title">
+          <input type="text" id="title" name="title" placeholder="title" />
+        </div>
+        <div class="container__description">
+          <input
+            type="text"
+            id="description"
+            name="description"
+            placeholder="description"
+          />
+        </div>
+        <div class="container__profile__image">
+          <input
+            type="file"
+            id="profile_image"
+            name="file"
+            class="profile_image"
+          />
+          <label for="profile_image">Select Picture</label>
+        </div>
+        <div class="container__button">
+          <button type="submit">Upload</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

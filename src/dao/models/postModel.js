@@ -5,11 +5,11 @@ const postCollection = "posts";
 const postSchema = new mongoose.Schema({
   title: {
     type: String,
-    requied: true,
+    required: true,
   },
   description: {
     type: String,
-    requied: true,
+    required: true,
   },
   date: {
     type: Date,
@@ -17,14 +17,13 @@ const postSchema = new mongoose.Schema({
   },
   post_image: {
     type: String,
-    require: true,
   },
   user: {
-    tpye: mongoose.Schema.Types.ObjectId,
-    ref: "users",
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "user",
   },
 });
 
-const postModel = (postCollection, postSchema);
+const postModel = mongoose.model(postCollection, postSchema);
 
 export default postModel;
