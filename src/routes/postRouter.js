@@ -89,5 +89,27 @@ export default class PostRouter extends baseRouter {
         console.log(error);
       }
     });
+
+    this.get("/myposts", async (req, res) => {
+      if (!req.session.isLogged) {
+        return res.redirect("/login");
+      }
+
+      const userId = req.session.userId;
+      const userPosts = await postModel
+        .find({ user: userId })
+        .populate("user")
+        .lean();
+      const username = req.session.username;
+
+      for (const post of userPosts) {
+        post.edit = post.user.toString() === userId;
+      }
+
+      res.render("myposts", {
+        posts: userPosts,
+        username,
+      });
+    });
   }
 }
