@@ -21,6 +21,7 @@ ul li {
 
 .nav__bar {
   background-color: black;
+  display: flex;
 }
 
 .nav__links {
@@ -32,4 +33,5 @@ ul li {
 
 .nav__items {
   margin: 20px;
+  color: white;
 }

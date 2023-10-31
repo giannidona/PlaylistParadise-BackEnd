@@ -5,6 +5,9 @@ import userModel from "../dao/models/userModel.js";
 export default class RegisterRouter extends baseRouter {
   init() {
     this.get("/register", async (req, res) => {
+      if (req.session.isLogged) {
+        return res.redirect("/home");
+      }
       res.render("register");
     });
 
@@ -18,8 +21,9 @@ export default class RegisterRouter extends baseRouter {
           password,
           profile_image,
         });
+
         console.log(newUser);
-        res.redirect("home");
+        res.redirect("/home");
       } catch (error) {
         res.send(error);
       }

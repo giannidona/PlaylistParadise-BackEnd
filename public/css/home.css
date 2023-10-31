@@ -29,6 +29,10 @@
   padding: 10px;
 }
 
+.title {
+  font-weight: 600;
+}
+
 .creator__post__info {
   display: flex;
   margin: 10px 0px;
@@ -43,4 +47,29 @@
 .user__info img {
   max-width: 20px;
   margin-right: 5px;
+}
+
+.container__edit__btn {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit__btn {
+  padding: 5px 10px;
+  background-color: green;
+  border-radius: 10px;
+  margin: 2px;
+}
+
+.delete__btn {
+  padding: 5px 10px;
+  background-color: red;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  font-size: 17px;
+  margin: 2px;
+  cursor: pointer;
 }

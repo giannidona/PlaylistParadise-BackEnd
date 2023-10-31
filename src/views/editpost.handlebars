@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="/static/css/editpost.css" />
+
+<nav class="nav__bar">
+  <ul class="nav__links">
+    <li class="nav__items"><a href="/home">HOME</a></li>
+    <li class="nav__items"><a href="/myposts">MY POSTS</a></li>
+    <li class="nav__items"><a href="/createpost">CREATE POST</a></li>
+  </ul>
+</nav>
+
+<section id="editpost">
+  <div class="container">
+    <p class="title">EDIT POST</p>
+    <div class="container__form">
+      <form
+        method="POST"
+        action="/editpost/{{postId}}?_method=PUT"
+        enctype="multipart/form-data"
+      >
+        <input type="hidden" name="_method" value="PUT" />
+        <div class="container__title">
+          <input
+            type="text"
+            id="title"
+            name="title"
+            placeholder="change title"
+          />
+        </div>
+        <div class="container__description">
+          <input
+            type="text"
+            id="description"
+            name="description"
+            placeholder="change description"
+          />
+        </div>
+        <div class="container__post__image">
+          <input type="file" id="post_image" name="file" class="post_image" />
+          <label for="post__image">Change Picture</label>
+        </div>
+        <div class="container__button">
+          <button type="submit">Confirm Edit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
