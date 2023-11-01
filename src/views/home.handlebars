@@ -1,20 +1,11 @@
 <link rel="stylesheet" href="/static/css/home.css" />
 
-<nav class="nav__bar">
-  <ul class="nav__links">
-    <li class="nav__items"><a href="http://localhost:8080/home">HOME</a></li>
-    <li class="nav__items"><a href="http://localhost:8080/myposts">MY POSTS</a></li>
-    <li class="nav__items"><a href="http://localhost:8080/createpost">CREATE
-        POST</a></li>
-    <li class="nav__items">{{this.username}}</li>
-  </ul>
-</nav>
 <section id="posts">
   <div class="container">
     {{#each posts}}
       <div class="card">
         <div class="card__img">
-          <img src="http://localhost:8080/static/{{this.post_image}}" alt="" />
+          <img src="/static/{{this.post_image}}" alt="" />
         </div>
         <div class="card__info">
           <p class="title">{{this.title}}</p>
@@ -23,7 +14,7 @@
             <div class="user__info">
               <img
                 class="profile__img"
-                src="/static/profile-picture.png"
+                src="/static/{{this.user.profile_image}}"
                 alt="profile picture"
               />
               <p class="user">{{this.user.username}}</p>
@@ -54,5 +45,3 @@
     {{/each}}
   </div>
 </section>
-
-<script src="/static/js/newPost.js"></script>

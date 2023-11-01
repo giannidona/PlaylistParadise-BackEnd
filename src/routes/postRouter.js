@@ -9,7 +9,9 @@ export default class PostRouter extends baseRouter {
       if (!req.session.isLogged) {
         return res.redirect("/login");
       }
-      res.render("createpost");
+
+      const username = req.session.username;
+      res.render("createpost", { username });
     });
 
     // CREATE POST
@@ -36,12 +38,13 @@ export default class PostRouter extends baseRouter {
         return res.redirect("/login");
       }
       const postId = req.params.id;
+      const username = req.session.username;
 
       if (!postId) {
         res.send("no existe");
       }
 
-      res.render("editpost", { postId });
+      res.render("editpost", { postId, username });
     });
 
     // EDIT POST
@@ -68,21 +71,14 @@ export default class PostRouter extends baseRouter {
       }
     });
 
-    this.get("/deletepost/:id", async (req, res) => {
-      postId = req.params.id;
-      res.render("deletepost", { postId });
-    });
+    // RENDER DELETE POST
+    this.get("/deletepost/:id", async (req, res) => {});
 
+    // DELETE POST
     this.delete("/deletepost/:id", async (req, res) => {
       try {
         const postId = req.params.id;
         const deletePost = await postModel.findByIdAndDelete(postId);
-
-        if (deletePost) {
-          res.status(200).send("Post deleted with ID " + postId);
-        } else {
-          res.status(404).send("Post not found with ID " + postId);
-        }
 
         res.redirect("/home");
       } catch (error) {
@@ -90,6 +86,7 @@ export default class PostRouter extends baseRouter {
       }
     });
 
+    // RENDER USER POSTS
     this.get("/myposts", async (req, res) => {
       if (!req.session.isLogged) {
         return res.redirect("/login");

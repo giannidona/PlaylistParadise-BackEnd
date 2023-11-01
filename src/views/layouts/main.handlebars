@@ -9,9 +9,19 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/static/css/global.css" />
-    <title>Document</title>
+    <title>CMS</title>
   </head>
   <body>
+    {{#unless hideNavbar}}
+      <nav class="nav__bar">
+        <ul class="nav__links">
+          <li class="nav__items"><a href="/home">HOME</a></li>
+          <li class="nav__items"><a href="/myposts">MY POSTS</a></li>
+          <li class="nav__items"><a href="/createpost">CREATE POST</a></li>
+          <li class="nav__items"><a href="/profile">{{this.username}}</a></li>
+        </ul>
+      </nav>
+    {{/unless}}
     {{{body}}}
   </body>
 </html>

@@ -7,7 +7,7 @@ export default class LoginRouter extends baseRouter {
       if (req.session.isLogged) {
         return res.redirect("/home");
       }
-      res.render("login");
+      res.render("login", { hideNavbar: true });
     });
 
     this.post("/login", async (req, res) => {
@@ -16,6 +16,7 @@ export default class LoginRouter extends baseRouter {
         const user = await userModel.findOne({ username, password }).lean();
 
         req.session.username = user.username;
+        req.session.email = user.email;
         req.session.image = user.profile_image;
         req.session.userId = user._id;
         req.session.isLogged = true;

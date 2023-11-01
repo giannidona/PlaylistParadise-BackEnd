@@ -61,6 +61,11 @@
   background-color: green;
   border-radius: 10px;
   margin: 2px;
+  transition: 0.3s;
+}
+
+.edit__btn:hover {
+  background-color: rgb(0, 85, 0);
 }
 
 .delete__btn {
@@ -72,4 +77,26 @@
   font-size: 17px;
   margin: 2px;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+.delete__btn:hover {
+  background-color: rgb(182, 1, 1);
+}
+
+.no__posts {
+  max-width: 80%;
+  margin: auto;
+  padding: 50px;
+  text-align: center;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    max-width: 80%;
+    margin: auto;
+    margin-top: 50px;
+    display: block;
+  }
 }

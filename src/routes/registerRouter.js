@@ -8,7 +8,7 @@ export default class RegisterRouter extends baseRouter {
       if (req.session.isLogged) {
         return res.redirect("/home");
       }
-      res.render("register");
+      res.render("register", { hideNavbar: true });
     });
 
     this.post("/register", uploader.single("file"), async (req, res) => {
