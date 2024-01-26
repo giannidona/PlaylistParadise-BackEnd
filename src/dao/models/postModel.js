@@ -8,10 +8,12 @@ const postSchema = new mongoose.Schema({
     required: true,
   },
   likesCounter: {
-    type: String,
+    type: Number,
+    default: 0,
   },
   dateCreated: {
     type: Date,
+    default: Date.now,
   },
   uploadedBy: {
     type: mongoose.Schema.Types.ObjectId,
