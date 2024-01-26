@@ -1,9 +1,11 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import cors from "cors";
 
 import sessionRoutes from "./routes/sessionRoutes.js";
 import createPostRoutes from "./routes/createPostRoutes.js";
+import homeRoutes from "./routes/homeRoutes.js";
 
 dotenv.config();
 const PORT = process.env.PORT;
@@ -14,9 +16,11 @@ app.listen(PORT || 2020, () => console.log(`http://localhost:${PORT}/login`));
 
 mongoose.connect(MONGO_URL);
 
+app.use(cors());
 app.use("/static", express.static("./public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(sessionRoutes);
 app.use(createPostRoutes);
+app.use(homeRoutes);
