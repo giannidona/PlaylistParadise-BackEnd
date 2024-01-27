@@ -2,8 +2,6 @@ import { Router } from "express";
 
 const router = Router();
 
-router.get("/home", async (req, res) => {
-  res.json("hello");
-});
+router.get("/home");
 
 export default router;

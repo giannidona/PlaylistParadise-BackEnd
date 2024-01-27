@@ -2,12 +2,10 @@ import userServices from "../../services/user/userServices.js";
 
 const register = async (req, res) => {
   try {
-    const { username, password, profile_image } = req.body;
-
+    const { username, password } = req.body;
     const newUser = await userServices.create({
       username,
       password,
-      profile_image,
     });
 
     console.log(newUser);
@@ -18,14 +16,24 @@ const register = async (req, res) => {
 };
 
 const login = async (req, res) => {
-  const { username, password } = req.body;
+  try {
+    const { username, password } = req.body;
 
-  const user = userServices.findOne({ username, password }).lean();
+    const user = userServices.findOne({ username, password }).lean();
 
-  if (!user) {
-    return console.log("ese usuario no existe");
+    if (!user) {
+      return console.log("ese usuario no existe");
+    }
+
+    req.session.username = user.username;
+    req.session.userId = user._id;
+    req.session.profile_image = user.profile_image;
+    req.session.isLogged = true;
+
+    return res.send("logueado");
+  } catch (error) {
+    console.log(error, "login userController.");
   }
-  return res.send("logueado");
 };
 
 export default { register, login };
