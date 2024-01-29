@@ -1,4 +1,4 @@
-import { userModel } from "../../dao/models/userModel.js";
+import { userModel } from "../dao/models/userModel.js";
 
 export default class userServices {
   static getById() {
@@ -20,6 +20,11 @@ export default class userServices {
   }
 
   static findOne(params) {
-    return userModel.findOne({ params }).lean();
+    try {
+      const user = userModel.findOne(params).lean();
+      return user;
+    } catch (error) {
+      console.log(error, "findOne userService");
+    }
   }
 }

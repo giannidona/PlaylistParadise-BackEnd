@@ -1,4 +1,4 @@
-import { postModel } from "../../dao/models/postModel.js";
+import { postModel } from "../dao/models/postModel.js";
 
 export default class postServices {
   static getById() {
@@ -7,6 +7,15 @@ export default class postServices {
       return post;
     } catch (error) {
       console.log(error, "getById postService");
+    }
+  }
+
+  static getAll() {
+    try {
+      const playlist = postModel.find();
+      return playlist;
+    } catch (error) {
+      console.log(error, "getAll postService");
     }
   }
 

@@ -1,5 +1,5 @@
 import { Router } from "express";
-import userController from "../controllers/user/userController.js";
+import userController from "../controllers/sessionController.js";
 const router = Router();
 
 router.post("/register", userController.register);
