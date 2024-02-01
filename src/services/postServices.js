@@ -12,7 +12,7 @@ export default class postServices {
 
   static getAll() {
     try {
-      const playlist = postModel.find();
+      const playlist = postModel.find().lean();
       return playlist;
     } catch (error) {
       console.log(error, "getAll postService");

@@ -4,9 +4,8 @@ import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import cors from "cors";
 
-import sessionRoutes from "./routes/sessionRoutes.js";
-import createPostRoutes from "./routes/createPostRoutes.js";
 import homeRoutes from "./routes/homeRoutes.js";
+import createPostRoutes from "./routes/createPostRoutes.js";
 
 dotenv.config();
 const PORT = process.env.PORT;
@@ -28,6 +27,5 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use(sessionRoutes);
-app.use(createPostRoutes);
 app.use(homeRoutes);
+app.use(createPostRoutes);
