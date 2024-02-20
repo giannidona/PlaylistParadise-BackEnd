@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 
 import homeRoutes from "./routes/homeRoutes.js";
-import createPostRoutes from "./routes/createPostRoutes.js";
+import postRoutes from "./routes/postRoutes.js";
 
 dotenv.config();
 const PORT = process.env.PORT;
@@ -28,4 +28,4 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use(homeRoutes);
-app.use(createPostRoutes);
+app.use(postRoutes);

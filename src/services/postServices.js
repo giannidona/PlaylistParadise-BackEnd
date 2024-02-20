@@ -37,9 +37,9 @@ export default class postServices {
     }
   }
 
-  static delete() {
+  static delete(id) {
     try {
-      const post = postModel.findByIdAndDelete();
+      const post = postModel.findByIdAndDelete(id);
       return post;
     } catch (error) {
       console.log(error, "delete postService");

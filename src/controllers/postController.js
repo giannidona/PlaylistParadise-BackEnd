@@ -15,4 +15,17 @@ const createPost = async (req, res) => {
   }
 };
 
-export default { createPost };
+const deletePost = async (req, res) => {
+  try {
+    const { pid } = req.params;
+    console.log("pid:", pid);
+
+    const deletePost = await postServices.delete({ _id: pid });
+
+    console.log("post eliminado es: ", deletePost);
+  } catch (error) {
+    console.log(error, "deletePost postController");
+  }
+};
+
+export default { createPost, deletePost };
