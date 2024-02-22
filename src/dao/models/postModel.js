@@ -7,6 +7,14 @@ const postSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  playlistName: {
+    type: String,
+    required: true,
+  },
+  genre: {
+    type: String,
+    required: true,
+  },
   dateCreated: {
     type: Date,
     default: Date.now,

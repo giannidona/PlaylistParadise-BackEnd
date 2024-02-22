@@ -2,10 +2,12 @@ import postServices from "../services/postServices.js";
 
 const createPost = async (req, res) => {
   try {
-    const { playlistLink } = req.body;
+    const { playlistLink, playlistName, genre } = req.body;
 
     const newPost = await postServices.create({
       playlistLink,
+      playlistName,
+      genre,
     });
 
     console.log(newPost);
